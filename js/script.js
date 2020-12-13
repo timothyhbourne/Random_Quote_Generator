@@ -96,11 +96,12 @@ function printQuote() {
   return document.getElementById('quote-box').innerHTML = html; 
 }
 
+// This will refresh the quote every 6 seconds
+setInterval(printQuote, 6000)
+
+
 /***
  * click event listener for the print quote button
  * DO NOT CHANGE THE CODE BELOW!!
 ***/
-
-setInterval(printQuote, 6000)
-
 document.getElementById('load-quote').addEventListener("click", printQuote, false);
