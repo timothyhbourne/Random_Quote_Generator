@@ -110,6 +110,11 @@ h1 {
   font-style: normal;
 }
 
+.tags:before {
+  content: ", ";
+  font-style: normal;
+}
+
 .year:before {
   content: ", ";
   font-style: normal;
