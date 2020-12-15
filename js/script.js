@@ -63,15 +63,13 @@ function randomRGB() {
 }
 
 //https://bit.ly/3gGcvO4 -> Referenced from this Treehouse student's question. Used bitly.com to shorten the link for visibility. 
-//This function changes the background color based on the random RGB number generated from the randomRGB function
-function changeBackgroundColor() {
   const mainBody = document.getElementById("mainBody");
   const myButton = document.getElementById("load-quote");
   
   myButton.addEventListener("click", () => {
   mainBody.style.backgroundColor = randomRGB();                       
   });
-}
+
 
 /***
  * This function is used to print out a random quote with its source, tags, and year properties (if they exist)
@@ -82,17 +80,17 @@ function printQuote() {
   <p class="quote">${randomQuote.quote}</p>
   <p class="source"> ${randomQuote.source}`
 
-  if (randomQuote.citation && randomQuote.tags) {
-    html += `<span class="citation"> ${randomQuote.citation}</span>`
-    html +=`<span class="tags"> ${randomQuote.tags}</span>`
-    html +=`<span class="year"> ${randomQuote.year}</span>`
-  } else {
-    html += `<span class="citation"> ${randomQuote.citation}</span>`
-    html +=`<span class="year"> ${randomQuote.year}</span>`
+  if (randomQuote.year) {
+    html+= `, <span>${randomQuote.year}, </span>`
+  }
+  if (randomQuote.tags) {
+    html+= `<span>${randomQuote.tags}, </span>`
+  }
+  if (randomQuote.citation) {
+    html+= `<span>${randomQuote.citation}</span>`
   }
   `</p>`
 
-  changeBackgroundColor()
   return document.getElementById('quote-box').innerHTML = html; 
 }
 
